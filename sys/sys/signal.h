@@ -90,6 +90,44 @@
 #define SIGTHR  32	/* thread library AST */
 #endif
 
+#ifdef SIG_NAMES
+char* sig_names[NSIG + 1] = {
+	"",
+	"SIGHUP",
+	"SIGINT",
+	"SIGQUIT",
+	"SIGILL",
+	"SIGTRAP",
+	"SIGABRT",
+	"SIGEMT",
+	"SIGFPE",
+	"SIGKILL",
+	"SIGBUS",
+	"SIGSEGV",
+	"SIGSYS",
+	"SIGPIPE",
+	"SIGALRM",
+	"SIGTERM",
+	"SIGURG",
+	"SIGSTOP",
+	"SIGTSTP",
+	"SIGCONT",
+	"SIGCHLD",
+	"SIGTTIN",
+	"SIGTTOU",
+	"SIGIO",
+	"SIGXCPU",
+	"SIGXFSZ",
+	"SIGVTALRM",
+	"SIGPROF",
+	"SIGWINCH",
+	"SIGINFO",
+	"SIGUSR1",
+	"SIGUSR2",
+	"SIGTHR"
+};
+#endif
+
 /*
  * Language spec says we must list exactly one parameter, even though we
  * actually supply three.  Ugh!

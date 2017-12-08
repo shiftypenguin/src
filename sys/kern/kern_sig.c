@@ -39,7 +39,9 @@
  */
 
 #define	SIGPROP		/* include signal properties table */
+#define	SIG_NAMES	/* include signal names for logging */
 #include <sys/param.h>
+#include <sys/signal.h>
 #include <sys/signalvar.h>
 #include <sys/resourcevar.h>
 #include <sys/queue.h>
@@ -758,6 +760,9 @@ trapsignal(struct proc *p, int signum, u_long trapno, int code,
 	struct process *pr = p->p_p;
 	struct sigacts *ps = pr->ps_sigacts;
 	int mask;
+
+	log(LOG_ERR, "%s(%d): trap signal %d \"%s\"\n", p->p_p->ps_comm,
+	    p->p_p->ps_pid, signum, sig_names[signum]);
 
 	switch (signum) {
 	case SIGILL:
